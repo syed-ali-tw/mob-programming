@@ -6,7 +6,6 @@ class BlogsController < ApplicationController
   end
 
   def create
-    byebug
     blog = Blog.new(title: params[:title], description: params[:description])
     blog.save
   end

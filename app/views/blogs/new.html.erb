@@ -1,1 +1,12 @@
-<p>what do you want?</p>
+<%= form_with url: '/blogs/create', model: @blog do |form| %>
+  <div>
+    <%= form.label :title, "Title" %><br>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :description, "Description" %><br>
+    <%= form.text_area :description %>
+  </div>
+  <br>
+  <%= form.submit %>
+<% end %>
