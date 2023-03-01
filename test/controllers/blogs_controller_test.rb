@@ -4,8 +4,10 @@ class BlogsControllerTest < ActionDispatch::IntegrationTest
   #   assert true
   # end
 
-  test "should return all the records in the database" do
+  test "should return all the records from the database" do
+    blog = Blog.all
     get blogs_url
     assert_response :success
+    assert_select "h1", "#{blog.count}"
   end
 end
