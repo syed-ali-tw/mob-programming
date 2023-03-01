@@ -1,1 +1,10 @@
-<h1><%=@blogs.count %></h1>
+<h1>Blogs</h1>
+<table>
+  <tbody>
+  <% @blogs.each do |blog| %>
+    <tr>
+      <td><%= blog.title %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
