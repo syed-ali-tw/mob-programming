@@ -1,9 +1,16 @@
 <h1>Blogs</h1>
 <table>
+  <thead>
+  <th>title</th>
+  <th>description</th>
+  <th>actions</th>
+  </thead>
   <tbody>
   <% @blogs.each do |blog| %>
     <tr>
       <td><%= blog.title %></td>
+      <td><%= blog.description %></td>
+      <td>action</td>
     </tr>
   <% end %>
   </tbody>
