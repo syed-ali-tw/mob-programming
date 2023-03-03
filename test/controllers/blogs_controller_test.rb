@@ -1,9 +1,9 @@
 require "test_helper"
 
 class BlogsControllerTest < ActionDispatch::IntegrationTest
-
+  blog = Blog.all
   test "title should be correct" do
-    blog = Blog.all
+
     get blogs_url
     assert_response :success
     assert_select "h1", "Blogs"
@@ -12,12 +12,11 @@ class BlogsControllerTest < ActionDispatch::IntegrationTest
   test "should display correct number of blog" do
     get blogs_url
     assert_select "tbody" do |elements|
-      assert_select elements, "td", blog.count
+      assert_select elements, "tr", blog.count
     end
   end
 
   test "should validate that headers are correct for blog table" do
-
     get blogs_url
     assert_select "th", { count: 3 }
     assert_select "thead" do
@@ -25,5 +24,13 @@ class BlogsControllerTest < ActionDispatch::IntegrationTest
       assert_select "th", "description"
       assert_select "th", "actions"
     end
+  end
+
+  test "should have a link that allows you to edit blog" do
+    get blogs_url
+    assert_select "a", "Edit Blog"
+    puts assert_select "a"
+    puts edit_path_url(blog[0])
+    assert_select("a[href=?]", edit_path_url(blog[0]))
   end
 end

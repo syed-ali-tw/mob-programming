@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get "/blogs" => "blogs#index"
   get "/blogs/new" => "blogs#new"
   post "/blogs/create" => "blogs#create"
+  get "/blogs/:id/edit" => "blogs#edit", as:"edit_path"
 end

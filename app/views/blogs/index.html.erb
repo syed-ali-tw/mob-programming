@@ -10,7 +10,7 @@
     <tr>
       <td><%= blog.title %></td>
       <td><%= blog.description %></td>
-      <td>action</td>
+      <td><%= link_to 'Edit Blog', edit_path_url(blog) %></td>
     </tr>
   <% end %>
   </tbody>
