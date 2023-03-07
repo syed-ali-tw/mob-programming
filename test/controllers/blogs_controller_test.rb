@@ -1,6 +1,7 @@
 require "test_helper"
-
 class BlogsControllerTest < ActionDispatch::IntegrationTest
+  extend Minitest::Spec::DSL
+
   blog = Blog.all
   test "title should be correct" do
 
@@ -32,5 +33,14 @@ class BlogsControllerTest < ActionDispatch::IntegrationTest
     puts assert_select "a"
     puts edit_path_url(blog[0])
     assert_select("a[href=?]", edit_path_url(blog[0]))
+  end
+
+
+  context "Given im a blogger" do
+    context "when I visit the new blog page" do
+      test"Then I get presented with a fillable form" do
+
+      end
+    end
   end
 end

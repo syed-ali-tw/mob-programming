@@ -113,6 +113,8 @@ GEM
       net-smtp
     marcel (1.0.2)
     matrix (0.4.2)
+    maxitest (4.4.1)
+      minitest (>= 5.0.0, < 5.18.0)
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.17.0)
@@ -226,6 +228,7 @@ DEPENDENCIES
   debug
   jbuilder
   jsbundling-rails
+  maxitest
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
   selenium-webdriver
