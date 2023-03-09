@@ -11,7 +11,10 @@
       <td><%= blog.title %></td>
       <td><%= blog.description %></td>
       <td><%= link_to 'Edit Blog', edit_path_url(blog) %></td>
-
+      <td><%= render "govuk_publishing_components/components/action_link", {
+        text: "Go to NHS 111 online",
+        href: "/page"
+      } %></td>
     </tr>
   <% end %>
   </tbody>
