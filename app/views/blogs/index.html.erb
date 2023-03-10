@@ -1,65 +1,30 @@
 <h1>Blogs</h1>
-<table>
-  <thead>
-  <th>title</th>
-  <th>description</th>
-  <th>actions</th>
-  </thead>
-  <tbody>
-  <% @blogs.each do |blog| %>
-    <tr>
-      <td><%= blog.title %></td>
-      <td><%= blog.description %></td>
-      <td><%= link_to 'Edit Blog', edit_path_url(blog) %></td>
-      <td><%= render "govuk_publishing_components/components/action_link", {
-        text: "Go to NHS 111 online",
-        href: "/page"
-      } %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
 
 <%= render "govuk_publishing_components/components/table", {
-  rows: [
+  head: [
+    {
+      text: "Title"
+    },
+    {
+      text: "Description"
+    },
+    {
+      text: "Action"
+    }
+  ],
+  rows: @blogs.map do |blog|
     [
       {
-        text: "January"
+        text: blog.title
       },
       {
-        text: "£85",
-        format: "numeric"
+        text: blog.description
       },
       {
-        text: "£95",
-        format: "numeric"
-      }
-    ],
-    [
-      {
-        text: "February"
-      },
-      {
-        text: "£75",
-        format: "numeric"
-      },
-      {
-        text: "£55",
-        format: "numeric"
-      }
-    ],
-    [
-      {
-        text: "March"
-      },
-      {
-        text: "£165",
-        format: "numeric"
-      },
-      {
-        text: "£125",
-        format: "numeric"
+        text: render("govuk_publishing_components/components/action_link", {
+          text: "Edit Blog",
+          href: "edit_path_url(blog)"})
       }
     ]
-  ]
+    end
 } %>
