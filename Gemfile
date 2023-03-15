@@ -52,6 +52,8 @@ gem "sassc-rails" #2.1.2
 
 gem "govuk_publishing_components"
 
+gem "govuk_test"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
