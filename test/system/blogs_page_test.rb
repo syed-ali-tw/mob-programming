@@ -23,10 +23,18 @@ class ActionDispatch::IntegrationTest
     Capybara.use_default_driver
   end
 
-  # describe "blogs page", type: :feature do
+  #  describe "blogs page", type: :feature do TODO use rspec DSL
   test "should render blogs page" do
     visit '/blogs/new'
     assert page.status_code == 200
   end
   # end
+  #  New test
+  # visit new blog page
+  # enter the value into title input field
+  #  enter the value into description input field
+  # click on submit button
+  # verify flash message for success
+  # visit blogs page
+  # verify title & description displayed on the page
 end
