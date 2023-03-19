@@ -39,6 +39,3 @@
 
 /node_modules
 .DS_Store
-
-# Ignore IDE configuration
-.idea
