@@ -20,9 +20,9 @@ class BlogsControllerTest < ActionDispatch::IntegrationTest
     get blogs_url
     assert_select "th", { count: 3 }
     assert_select "thead" do
-       assert_select "th", "Title"
-       assert_select "th", "Description"
-       assert_select "th", "Action"
+      assert_select "th", "title"
+      assert_select "th", "description"
+      assert_select "th", "actions"
     end
   end
 
