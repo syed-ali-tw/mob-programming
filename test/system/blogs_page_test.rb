@@ -43,11 +43,11 @@ class ActionDispatch::IntegrationTest
     title = 'title for test'
     description = "description for the test"
 
-    page.fill_in 'Title', with: title    #https://www.rubydoc.info/gems/capybara/Capybara%2FNode%2FActions:fill_in  <refer this doc to understand how we are using >
+    page.fill_in 'Title', with: title #https://www.rubydoc.info/gems/capybara/Capybara%2FNode%2FActions:fill_in  <refer this doc to understand how we are using >
 
     page.fill_in 'Description', with: description
-
-
+    page.click_button 'Submit'
+    assert find(:xpath, "//div[text()='Saved the record successfully']")
   end
 
 end
