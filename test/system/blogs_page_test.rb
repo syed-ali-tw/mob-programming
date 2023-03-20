@@ -37,4 +37,17 @@ class ActionDispatch::IntegrationTest
   # verify flash message for success
   # visit blogs page
   # verify title & description displayed on the page
+
+  test "should create new blog and render on blog scree" do
+    visit "/blogs/new"
+    title = 'title for test'
+    description = "description for the test"
+
+    page.fill_in 'Title', with: title    #https://www.rubydoc.info/gems/capybara/Capybara%2FNode%2FActions:fill_in  <refer this doc to understand how we are using >
+
+    page.fill_in 'Description', with: description
+
+
+  end
+
 end
