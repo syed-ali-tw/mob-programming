@@ -28,17 +28,8 @@ class ActionDispatch::IntegrationTest
     visit '/blogs/new'
     assert page.status_code == 200
   end
-  # end
-  #  New test
-  # visit new blog page
-  # enter the value into title input field
-  #  enter the value into description input field
-  # click on submit button
-  # verify flash message for success
-  # visit blogs page
-  # verify title & description displayed on the page
 
-  test "should create new blog and render on blog scree" do
+  test "should create new blog and render on blog screen" do
     visit "/blogs/new"
     title = 'title for test'
     description = "description for the test"
@@ -47,11 +38,17 @@ class ActionDispatch::IntegrationTest
 
     page.fill_in 'Description', with: description
     page.click_button 'Submit'
-    assert find(:xpath, "//div[text()='Saved the record successfully']")#TODO - improve this assertion semantically - assert on alert being displayed
+    assert find(:xpath, "//div[text()='Saved the record successfully']") #TODO - improve this assertion semantically - assert on alert being displayed
     assert page.current_path == "/" #TODO - possibly change the redirection destination to "/blogs"
     visit "/blogs"
     assert find(:xpath, "//td[text()='#{title}']")
     assert find(:xpath, "//td[text()='#{description}']")
+  end
+
+  test "should navigate to edit page after clicking the edit blog link" do
+    skip
+    visit "/blogs"
+    page.click_link 'Edit Blog'
   end
 
 end
