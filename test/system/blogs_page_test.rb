@@ -49,7 +49,9 @@ class ActionDispatch::IntegrationTest
     page.click_button 'Submit'
     assert find(:xpath, "//div[text()='Saved the record successfully']")#TODO - improve this assertion semantically - assert on alert being displayed
     assert page.current_path == "/" #TODO - possibly change the redirection destination to "/blogs"
-
+    visit "/blogs"
+    assert find(:xpath, "//td[text()='#{title}']")
+    assert find(:xpath, "//td[text()='#{description}']")
   end
 
 end
