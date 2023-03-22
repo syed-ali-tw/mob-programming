@@ -46,9 +46,18 @@ class ActionDispatch::IntegrationTest
   end
 
   test "should navigate to edit page after clicking the edit blog link" do
-    skip
     visit "/blogs"
-    page.click_link 'Edit Blog'
+    within_table_row(1) do
+      click_on "Edit Blog"
+    end
+
+  end
+
+  def within_table_row(position)
+    row = find_all("table tr")[position]
+    within(row) do
+      yield
+    end
   end
 
 end
