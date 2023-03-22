@@ -50,7 +50,8 @@ class ActionDispatch::IntegrationTest
     within_table_row(1) do
       click_on "Edit Blog"
     end
-
+    puts page.current_path
+    assert has_current_path? "/blogs/298486374/edit"
   end
 
   def within_table_row(position)
