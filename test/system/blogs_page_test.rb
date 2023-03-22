@@ -52,8 +52,8 @@ class ActionDispatch::IntegrationTest
     end
     puts page.current_path
     assert has_current_path? "/blogs/298486374/edit"
-    # assert find('h1.title').text == 'Edit Blog'
-    assert_text('Edit Blog')
+    assert find('h1.govuk-heading-xl').text == 'Edit Blog'
+    #assert_text('Edit Blog')
   end
 
   def within_table_row(position)
