@@ -15,6 +15,7 @@ require 'capybara/minitest'
 #   end
 # end
 class ActionDispatch::IntegrationTest
+  extend Minitest::Spec::DSL
   include Capybara::DSL
 
   teardown do
@@ -22,10 +23,11 @@ class ActionDispatch::IntegrationTest
     Capybara.use_default_driver
   end
 
-  #  describe "blogs page", type: :feature do TODO use rspec DSL
-  test "should render blogs page" do
-    visit '/blogs/new'
-    assert page.status_code == 200
+  describe "blogs page" do # TODO use rspec DSL
+    test "should render blogs page" do
+      visit '/blogs/new'
+      assert page.status_code == 200
+    end
   end
 
   test "should create new blog and render on blog screen" do
