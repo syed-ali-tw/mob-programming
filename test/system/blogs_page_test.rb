@@ -16,7 +16,6 @@ require 'capybara/minitest'
 # end
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
-  include Capybara::Minitest::Assertions
 
   teardown do
     Capybara.reset_sessions!
