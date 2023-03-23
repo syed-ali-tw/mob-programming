@@ -51,7 +51,7 @@ class ActionDispatch::IntegrationTest
       click_on "Edit Blog"
     end
     puts page.current_path
-    assert has_current_path? "/blogs/298486374/edit"
+    assert_current_path "/blogs/298486374/edit"
     assert find('h1.govuk-heading-xl').text == 'Edit Blog'
     #assert_text('Edit Blog')
   end
